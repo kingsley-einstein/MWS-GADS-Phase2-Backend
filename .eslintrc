@@ -1,0 +1,18 @@
+{
+  "env": {
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "extends": "google",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "linebreak-style": "off",
+    "comma-dangle": "off",
+    "new-cap": "off",
+    "max-len": "off"
+  },
+  "parser": "babel-eslint"
+}

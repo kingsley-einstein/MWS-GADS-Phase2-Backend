@@ -1,0 +1,40 @@
+{
+  "name": "MWS-GADS-Phase2-Backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:windows": "set NODE_ENV=development&& nodemon --exec babel-node src/index.js",
+    "dev:unix": "export NODE_ENV=development && nodemon --exec babel-node src/index.js",
+    "build:windows": "(if exist dist rmdir /q /s dist) && babel src -d dist",
+    "build:unix": "rm -rf dist && babel src -d dist",
+    "start:heroku": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.19.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "babel-eslint": "^10.0.3",
+    "dotenv": "^8.1.0",
+    "eslint": "^6.5.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.18.2",
+    "morgan": "^1.9.1"
+  }
+}
