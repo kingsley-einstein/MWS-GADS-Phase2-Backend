@@ -129,4 +129,27 @@ export class AuthController {
       });
     }
   }
+
+  /**
+   * @param {Request} req
+   * @param {Response} res
+   */
+  static getAuthUser = async (req, res) => {
+    try {
+      const {user} = req;
+      const data = {
+        id: user.id,
+        email: user.email
+      };
+      res.status(200).json({
+        status: 200,
+        data
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        error
+      });
+    }
+  }
 }

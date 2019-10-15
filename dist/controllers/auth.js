@@ -259,3 +259,43 @@ function () {
     return _ref4.apply(this, arguments);
   };
 }());
+(0, _defineProperty2["default"])(AuthController, "getAuthUser",
+/*#__PURE__*/
+function () {
+  var _ref5 = (0, _asyncToGenerator2["default"])(
+  /*#__PURE__*/
+  _regenerator["default"].mark(function _callee5(req, res) {
+    var user, data;
+    return _regenerator["default"].wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            try {
+              user = req.user;
+              data = {
+                id: user.id,
+                email: user.email
+              };
+              res.status(200).json({
+                status: 200,
+                data: data
+              });
+            } catch (error) {
+              res.status(500).json({
+                status: 500,
+                error: error
+              });
+            }
+
+          case 1:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+
+  return function (_x9, _x10) {
+    return _ref5.apply(this, arguments);
+  };
+}());

@@ -16,5 +16,6 @@ router.post('/auth/register', _controllers.AuthController.register);
 router.post('/auth/login', _controllers.AuthController.signIn);
 router.patch('/auth/update', _middlewares.Auth.verifyToken, _controllers.AuthController.updateItem);
 router.post('/auth/logout', _middlewares.Auth.verifyToken, _controllers.AuthController.logOut);
+router.get('/auth', _middlewares.Auth.verifyToken, _controllers.AuthController.getAuthUser);
 var _default = router;
 exports["default"] = _default;
