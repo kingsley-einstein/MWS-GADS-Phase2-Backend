@@ -13,8 +13,8 @@ var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/
 
 var cors = function cors() {
   var origins = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '*';
-  var headers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'Authorization, Content-Type';
-  var methods = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'POST, GET, PATCH, DELETE, PUT';
+  var headers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'Authorization, Content-Type, X-Requested-With, Origin, Accept';
+  var methods = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'POST, GET, PATCH, DELETE, PUT, OPTIONS';
   return (
     /*#__PURE__*/
     function () {
@@ -25,7 +25,7 @@ var cors = function cors() {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                res.header('Access-Control-Allow-Origins', origins);
+                res.header('Access-Control-Allow-Origin', origins);
                 res.header('Access-Control-Allow-Headers', headers);
                 res.header('Access-Control-Allow-Methods', methods);
                 next();

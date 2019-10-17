@@ -49,6 +49,13 @@ export class AuthController {
     try {
       const {email, password} = req.body;
       const user = await User.findByEmail(email);
+      if (!user) {
+        res.status(404).json({
+          status: 404,
+          error: 'User not found'
+        });
+        return;
+      }
       if (!bcrypt.compareSync(password, user.password)) {
         res.status(400).json({
           status: 400,

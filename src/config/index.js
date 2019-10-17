@@ -7,6 +7,7 @@ export default (app, {json, urlencoded}) => {
     app.use(require('morgan')('dev'));
   }
   app.use(cors('*'));
+  app.options('*', cors('*'));
   app.use(json());
   app.use(urlencoded({
     extended: true

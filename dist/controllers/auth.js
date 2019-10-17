@@ -107,8 +107,20 @@ function () {
           case 4:
             user = _context2.sent;
 
-            if (_bcryptjs["default"].compareSync(password, user.password)) {
+            if (user) {
               _context2.next = 8;
+              break;
+            }
+
+            res.status(404).json({
+              status: 404,
+              error: 'User not found'
+            });
+            return _context2.abrupt("return");
+
+          case 8:
+            if (_bcryptjs["default"].compareSync(password, user.password)) {
+              _context2.next = 11;
               break;
             }
 
@@ -118,7 +130,7 @@ function () {
             });
             return _context2.abrupt("return");
 
-          case 8:
+          case 11:
             data = {
               email: user.email,
               token: _helpers.Jwt.tokenize({
@@ -130,23 +142,23 @@ function () {
               status: 200,
               data: data
             });
-            _context2.next = 15;
+            _context2.next = 18;
             break;
 
-          case 12:
-            _context2.prev = 12;
+          case 15:
+            _context2.prev = 15;
             _context2.t0 = _context2["catch"](0);
             res.status(500).json({
               status: 500,
               error: _context2.t0
             });
 
-          case 15:
+          case 18:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[0, 12]]);
+    }, _callee2, null, [[0, 15]]);
   }));
 
   return function (_x3, _x4) {

@@ -21,6 +21,7 @@ var _default = function _default(app, _ref) {
   }
 
   app.use((0, _middlewares.cors)('*'));
+  app.options('*', (0, _middlewares.cors)('*'));
   app.use(json());
   app.use(urlencoded({
     extended: true
